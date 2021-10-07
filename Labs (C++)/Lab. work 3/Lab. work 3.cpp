@@ -27,7 +27,7 @@ int main()
         n++;
     }
 
-    while (n > 10 && abs(a) >= eps) // The beginning of searching a that is less than eps (the second condition
+    while (n > 10 && abs(a) >= eps) // The beginning of searching a that is less than eps (the second condition)
     {
         a = (pow(x, (2 * n)) * sin(pow(x, n))) / pow(n, 2); // Total calculation of Sum
         Sum += a;
