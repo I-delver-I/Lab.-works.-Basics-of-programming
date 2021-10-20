@@ -15,14 +15,15 @@ int main()
 		cin >> n;
 	}
 
-	long double v1 = 0, v2 = 0, v3 = 1.5, vn; // Initialization of three primary elements of the sequence
+	long double v3 = 0, v2 = 0, v1 = 1.5, v; // Initialization of three primary elements of the sequence
+	long double &vn = v;
 
 	for (unsigned i = 4; i <= n; i++)	// Calculating of vn
 	{
-		vn = (i + static_cast<unsigned>(1)) / static_cast<long double>(pow(i, 2) + 1) * v3 - v2 * v1;
-		v1 = v2;
-		v2 = v3;
-		v3 = vn;
+		v = (i + static_cast<unsigned>(1)) / static_cast<long double>(pow(i, 2) + 1) * v1 - v2 * v3;
+		v3 = v2;
+		v2 = v1;
+		v1 = v;
 	}
 	
 	if (vn != 0)	// Checking for belonging to the range of data type
