@@ -20,15 +20,7 @@ int main()
 
     int n = 1;  // Declaration and initialization of n
 
-    while (n <= 10) // Overcoming of the first condition
-    {
-        a = (pow(x, 2 * n) * sin(pow(x, n))) / (double)pow(n, 2);
-        Sum += a;
-
-        n++;
-    }
-
-    while (n > 10 && abs(a) >= eps) // The beginning of searching a that is less than eps (the second condition)
+    while (n <= 10 || (n > 10 && fabs(a) >= eps)) // The beginning of searching a that is less than eps (the second condition)
     {
         a = (pow(x, (2 * n)) * sin(pow(x, n))) / (double)pow(n, 2); // Total calculation of Sum
         Sum += a;

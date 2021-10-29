@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	unsigned int n;
+	unsigned long long n;
 	cout << "Enter a number which is equal to 4 or is bigger than the last one: ";
 	cin >> n;	// Initialization of n
 	while (n < 4)	// Checking of n for performing of the condition
@@ -18,7 +18,7 @@ int main()
 	double v3 = 0, v2 = 0, v1 = 1.5, v; // Initialization of three primary elements of the sequence
 	double &vn = v;
 
-	for (unsigned int i = 4; i <= n; i++)	// Calculating of vn
+	for (unsigned long long i = 4; i <= n; i++)	// Calculating of vn
 	{
 		v = static_cast<double>(i + 1.) / static_cast<double>(pow(static_cast<double>(i), 2) + 1.) * v1 - v2 * v3;
 		v3 = v2;
