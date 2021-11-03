@@ -22,11 +22,11 @@ int main()
     }
 
     bool isLPrime = false, isRPrime = false;
-    int i = 0, count = 0;
+    int i = 0, y = 0, count = 0, count2 = 0;
 
     while (isResult == 0)
     {
-        while ((i <= lNum && lNum > 0) || (i >= lNum && lNum < 0)) // The left number
+        while (((i <= lNum && lNum > 0) || (i >= lNum && lNum < 0)) || ((y <= rNum && rNum > 0) || (y >= rNum && rNum < 0))) // The left number
         {
             if (i != 0 && (lNum % i) == 0) 
             {
@@ -45,17 +45,11 @@ int main()
             {
                 i++;
             }
-        }
 
-        i = 0;
-        count = 0;
-
-        while ((i <= rNum && rNum > 0) || (i >= rNum && rNum < 0)) // The right number
-        {
-            if (i != 0 && (rNum % i) == 0)
+            if (y != 0 && (rNum % y) == 0)
             {
-                count++;
-                if ((count == 2 && i == rNum) || (count == 1 && abs(rNum) == 1))    // The condition to check whether the number as a prime one
+                count2++;
+                if ((count2 == 2 && y == rNum) || (count2 == 1 && abs(rNum) == 1))    // The condition to check whether the number as a prime one
                 {
                     isRPrime = true;
                 }
@@ -63,16 +57,18 @@ int main()
 
             if (rNum < 0)
             {
-                i--;
+                y--;
             }
             else if (rNum > 0)
             {
-                i++;
+                y++;
             }
         }
 
         i = 0;
+        y = 0;
         count = 0;
+        count2 = 0;
 
         if (isLPrime == false && isRPrime == false) // Both numbers aren't prime
         {
@@ -85,7 +81,6 @@ int main()
             {
                 isResult = lNum;
                 std::cout << "The nearest prime number is: " << isResult << std::endl;
-                
             }
             else if (isRPrime == true)
             {
