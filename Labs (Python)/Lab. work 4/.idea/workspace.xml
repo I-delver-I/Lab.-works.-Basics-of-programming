@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61ecd55f-3878-4aa0-b2e7-8c243cb12082" name="Changes" comment="Uploading of the fourth lab. work">
-      <change beforePath="$PROJECT_DIR$/../../Labs (C++)/Lab. work 4/src/Lab. work 4.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Labs (C++)/Lab. work 4/src/Lab. work 4.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Labs (C++)/Lab. work 5/src/Lab. work 5.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Labs (C++)/Lab. work 5/src/Lab. work 5.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Labs (Python).sln" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +58,7 @@
       <updated>1634336274505</updated>
       <workItem from="1634336294302" duration="2344000" />
       <workItem from="1635514784172" duration="571000" />
+      <workItem from="1636205500443" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Uploading of the fourth lab. work">
       <created>1634338351577</created>
