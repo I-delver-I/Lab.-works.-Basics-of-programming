@@ -10,7 +10,7 @@ int main()
     int lNum, rNum, isResult = 0;
     std::cout << "Please, enter a number: ";    // Initialization of the number
     std::cin >> a;
-    if (((double)a / (int)a) != 1 && a != 0)    // Checking whether the number as an integer one
+    if (((double)a / (int)a) != 1 && a)    // Checking whether the number as an integer one
     {
         lNum = floor(a);
         rNum = ceil(a);
@@ -24,11 +24,11 @@ int main()
     bool isLPrime = false, isRPrime = false;
     int i = 0, y = 0, count = 0, count2 = 0;
 
-    while (isResult == 0)
+    while (!isResult)
     {
         while (((i <= lNum && lNum > 0) || (i >= lNum && lNum < 0)) || ((y <= rNum && rNum > 0) || (y >= rNum && rNum < 0)))
         {
-            if (i != 0 && (lNum % i) == 0) // The left number
+            if (i && !(lNum % i)) // The left number
             {
                 count++;
                 if ((count == 2 && i == lNum) || (count == 1 && abs(lNum) == 1))    // The condition to check whether the number as a prime one
@@ -46,7 +46,7 @@ int main()
                 i++;
             }
 
-            if (y != 0 && (rNum % y) == 0)  // The right number
+            if (y && !(rNum % y))  // The right number
             {
                 count2++;
                 if ((count2 == 2 && y == rNum) || (count2 == 1 && abs(rNum) == 1))    // The condition to check whether the number as a prime one
@@ -70,27 +70,27 @@ int main()
             count = 0;
             count2 = 0;
 
-        if (isLPrime == false && isRPrime == false) // Both numbers aren't prime
+        if (!isLPrime && !isRPrime) // Both numbers aren't prime
         {
             lNum -= 1;
             rNum += 1;
         }
-        else if ((isLPrime == true && isRPrime == false ) || (isLPrime == false && isRPrime == true))  // One of numbers is prime
+        else if ((isLPrime && !isRPrime) || (!isLPrime && isRPrime))  // One of numbers is prime
         {
-            if (isLPrime == true)
+            if (isLPrime)
             {
                 isResult = lNum;
                 std::cout << "The nearest prime number is: " << isResult << std::endl;
             }
-            else if (isRPrime == true)
+            else if (isRPrime)
             {
                 isResult = rNum;
                 std::cout << "The nearest prime number is: " << isResult << std::endl;
             }
         }
-        else if (isLPrime == true && isRPrime == true)  // Both numbers are prime
+        else if (isLPrime && isRPrime)  // Both numbers are prime
         {
-            if (((double)a / (int)a) != 1 && a != 0)
+            if (((double)a / (int)a) != 1 && a)
             {
                 if (fabs((double)rNum - a) < fabs((double)lNum - a))
                 {
