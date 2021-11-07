@@ -150,7 +150,8 @@
     <ClCompile Include="src\Libs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Labs.h" />
+    <ClInclude Include="src\Labwork 5.h" />
+    <ClInclude Include="src\Labwork 6.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

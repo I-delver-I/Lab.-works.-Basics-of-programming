@@ -1,11 +1,10 @@
-﻿#include "Labs.h"
+﻿#include "Labwork 6.h"
 
 int main()
 {
 	double x, precision, y;
 	
 	labwork_6::input(x, precision);	// Input of x and precision
-
 
 	// Calculation of y
 	if (x > 1)	// The 1-st condition

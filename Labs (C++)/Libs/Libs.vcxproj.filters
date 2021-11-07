@@ -20,7 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Labs.h">
+    <ClInclude Include="src\Labwork 6.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Labwork 5.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

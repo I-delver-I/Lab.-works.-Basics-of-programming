@@ -1,5 +1,4 @@
-﻿#include <iostream>
-#include <cmath>
+﻿#include "Labwork 5.h"
 
 // Task 25:
 // Given a number called "a". Find the nearest prime number to this one
@@ -28,41 +27,9 @@ int main()
     {
         while (((i <= lNum && lNum > 0) || (i >= lNum && lNum < 0)) || ((y <= rNum && rNum > 0) || (y >= rNum && rNum < 0)))
         {
-            if (i && !(lNum % i)) // The left number
-            {
-                count++;
-                if ((count == 2 && i == lNum) || (count == 1 && abs(lNum) == 1))    // The condition to check whether the number as a prime one
-                {
-                    isLPrime = true;
-                }
-            }
+            labwork_5::the_number(i, lNum, count, isLPrime);    // The left number
 
-            if (lNum < 0)
-            {
-                i--;
-            }
-            else if (lNum > 0)
-            {
-                i++;
-            }
-
-            if (y && !(rNum % y))  // The right number
-            {
-                count2++;
-                if ((count2 == 2 && y == rNum) || (count2 == 1 && abs(rNum) == 1))    // The condition to check whether the number as a prime one
-                {
-                    isRPrime = true;
-                }
-            }
-
-            if (rNum < 0)
-            {
-                y--;
-            }
-            else if (rNum > 0)
-            {
-                y++;
-            }
+            labwork_5::the_number(y, rNum, count2, isRPrime);   // The rigth number
         }
 
             i = 0;
