@@ -1,6 +1,9 @@
-﻿#include "Lab. work 7.h"
+﻿#include "Lab. work 9.h"
+#include "Lab. work 8.h"
+#include "Lab. work 7.h"
 #include "Labwork 6.h"
 #include "Labwork 5.h"
+#include "Arrays.h"
 
 namespace labwork_5
 {
@@ -84,19 +87,17 @@ namespace labwork_7
 	}
 
 	// Creating of an array
-	double* create_an_array(int n)
+	void create_an_array(double*& M, const int N)
 	{
 		srand(time(NULL));
-		double *M = new double[n];
-		for (int i = 0; i < n; i++)
+		M = new double[N];
+		for (int i = 0; i < N; i++)
 		{
-			M[i] = INT_MAX / rand() % (INT_MAX - 1) + 1;
+			M[i] = INT_MAX / (rand() % (INT_MAX - 1) + 1);
 		}
-
 		// Showing of the created array
 		std::cout << "Showing of the created array: " << std::endl;
-		print_array(M, n);
-		return M;
+		print_array(M, N);
 	}
 
 	// Output of an array
@@ -110,67 +111,115 @@ namespace labwork_7
 		std::cout << std::endl;
 	}
 
-	// Creating of the derivative array
-	double* creating_of_derivative_array(const double *M, const int N, const int QUANTITY, const int K)
-	{
-		double *derivative_M = new double[QUANTITY];
-		int temp = 0;
-		for (int i = 0; i < N; i++)
-		{
-			if (M[i] > K)
-			{
-				derivative_M[temp] = M[i];
-				temp++;
-			}
-		}
-		std::cout << "The derivative array: " << std::endl;
-		print_array(derivative_M, QUANTITY);
-
-		return derivative_M;
-	}
-
 	// The count of elements which are bigger than k and their arithmetic mean
-	void count_of_elements_and_arithmetic_mean(const double *M, const int n, const int k, int &quantity, double &arithmetic_mean, double *&derivative_M)
+	void count_of_elements_and_arithmetic_mean(const double* M, const int N, const int K, double& arithmetic_mean)
 	{
-		// The quantity of elements
-		for (int o = 0; o < n; o++)
+		int quantity = 0;
+		// Searching of arithmetic mean and quantity
+		double sum = 0;
+		for (int y = 0; y < N; y++)
 		{
-			if (M[o] > k)
+			if (M[y] > K)
 			{
+				sum += M[y];
 				quantity++;
 			}
 		}
-		std::cout << "The quantity of elements which are more than k is: " << quantity << std::endl;
-		
-		// Creating of the derivative array
-		derivative_M = creating_of_derivative_array(M, n, quantity, k);
-		  
-		// Searching of arithmetic mean
-		double sum = 0;
-		for (int y = 0; y < quantity; y++)
+		if (sum != 0 && quantity != 0)
 		{
-			sum += derivative_M[y];
+			arithmetic_mean = sum / quantity;
+			
+			std::cout << "Arithmetic mean equals to: " << arithmetic_mean << std::endl;
 		}
-		arithmetic_mean = sum / quantity;
-		std::cout << "Arithmetic mean equals to: " << arithmetic_mean << std::endl;
+		std::cout << "The quantity of elements which are bigger than k is: " << quantity << std::endl;
 	}
 
 	// Replacing of elements
-	void replacing_of_elements(const int QUANTITY, const int N, const double *derivative_M, const double arithmetic_mean, double *M)
+	void replacing_of_elements(const int N, const int K, const double ARITHMETIC_MEAN, double *M)
 	{
-		for (int u = 0; u < QUANTITY; u++)
+		for (int u = 0; u < N; u++)
 		{
-			for (int r = 0; r < N; r++)
+			if (M[u] > K)
 			{
-				if (M[r] == derivative_M[u])
-				{
-					M[r] = arithmetic_mean;
-				}
+				M[u] = ARITHMETIC_MEAN;
 			}
 		}
-
 		// Printing of the replaced M
 		std::cout << "Replaced M: " << std::endl;
 		print_array(M, N);
+	}
+}
+
+namespace labwork_8
+{
+	void max_value_above_main_diagonal(double **A, int &index, const int N)
+	{
+		int temp = 0;
+		double maxValue = 0;
+		for (int i = 0; i < N; i++)
+		{
+			for (int y = 0; y < N; y++)
+			{
+				index = y;
+				if (y > i)
+				{
+					temp = index;
+					maxValue = (maxValue > A[i][y]) ? maxValue : A[i][y];
+				}
+			}
+		}
+		std::cout << "The maximum value equlas to: " << maxValue << std::endl;
+		index = temp;
+	}
+}
+
+namespace labwork_9
+{
+	// Verifying the entered sentence consists of braces for conditions of its equal quantity
+	void input_sentence(std::string & sentence)
+	{
+		bool all_correct = false;
+		
+		while (all_correct = false) // 
+		{
+			for (int i = 0; i < sentence.size(); i++)
+			{
+				if (sentence[i] != '(' || sentence[i] != ')')
+				{
+					std::cout << "Please, enter a sentence only consists of braces: ";
+					sentence.clear();
+					std::cin >> sentence;
+				}
+				else if (i == sentence.size() - 1)
+				{
+					all_correct = true;
+				}
+			}
+		}
+	}
+
+	void brace_balance(const std::string sentence)
+	{
+		int count1 = 0, count2 = 0;
+		for (int i = 0; i < sentence.size(); i++)
+		{
+			if (sentence[i] == '(')
+			{
+				count1++;
+			}
+			else if (sentence[i] == ')')
+			{
+				count2++;
+			}
+		}
+
+		if (count1 != count2)
+		{
+			std::cout << "The sentence hasn't needed quantity of braces! " << std::endl;
+		}
+		else
+		{
+			std::cout << "The sentence has needed quantity of braces! " << std::endl;
+		}
 	}
 }
