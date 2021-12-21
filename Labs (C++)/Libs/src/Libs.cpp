@@ -7,7 +7,7 @@
 
 namespace labwork_5
 {
-	void the_number(int& i, int& num, int& count, bool& isPrime)
+	void the_number(int& i, int num, int& count, bool& isPrime)
 	{
 		if (i && !(num % i)) // The left number
 		{
@@ -30,7 +30,7 @@ namespace labwork_5
 }
 
 namespace labwork_6
-{
+{ 
 	void input(double &x, double &precision)	// Input of x and precision
 	{
 		std::cout << "Please, enter a number: ";
@@ -176,50 +176,37 @@ namespace labwork_8
 namespace labwork_9
 {
 	// Verifying the entered sentence consists of braces for conditions of its equal quantity
-	void input_sentence(std::string & sentence)
+	void input_check_sentence(const char *str)
 	{
-		bool all_correct = false;
-		
-		while (all_correct = false) // 
+		bool fit = true;
+		int count1{}, count2{};
+		for (int i = 0; (i < strlen(str) + 1) && fit == true; i++)
 		{
-			for (int i = 0; i < sentence.size(); i++)
+			if ((str[i] != '(' && str[i] != ')') && str[i] != '\0')
 			{
-				if (sentence[i] != '(' || sentence[i] != ')')
-				{
-					std::cout << "Please, enter a sentence only consists of braces: ";
-					sentence.clear();
-					std::cin >> sentence;
-				}
-				else if (i == sentence.size() - 1)
-				{
-					all_correct = true;
-				}
+				std::cout << "The sentence doesn't consist of braces";
+				fit = false;
 			}
-		}
-	}
-
-	void brace_balance(const std::string sentence)
-	{
-		int count1 = 0, count2 = 0;
-		for (int i = 0; i < sentence.size(); i++)
-		{
-			if (sentence[i] == '(')
+			else if (str[i] == '(')
 			{
 				count1++;
 			}
-			else if (sentence[i] == ')')
+			else if (str[i] == ')')
 			{
 				count2++;
 			}
 		}
 
-		if (count1 != count2)
+		if (fit)
 		{
-			std::cout << "The sentence hasn't needed quantity of braces! " << std::endl;
-		}
-		else
-		{
-			std::cout << "The sentence has needed quantity of braces! " << std::endl;
+			if (count1 != count2)
+			{
+				std::cout << "The sentence hasn't needed quantity of braces! " << std::endl;
+			}
+			else
+			{
+				std::cout << "The sentence has needed quantity of braces! " << std::endl;
+			}
 		}
 	}
 }

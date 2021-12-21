@@ -4,10 +4,8 @@
    яка відкривається, справа має бути дужка, що закривається. Дужки можуть бути вкладені одна в одну. */
 
 int main() {
-	std::string sentence;
+	std::string str{};
 	std::cout << "Please, enter a sentence consists of braces: ";
-	std::cin >> sentence;
-	labwork_9::input_sentence(sentence);
-	labwork_9::brace_balance(sentence);
-	std::cout << "The sentence is: " << sentence << std::endl;
+	getline(std::cin, str);
+	labwork_9::input_check_sentence(str.c_str());
 }
