@@ -1,10 +1,8 @@
-#include "Lab. work 8.h"
-#include "Lab. work 7.h"
 #include "Arrays.h"
 
 namespace arrays
 {
-	void copy_d_arr(double**& new_Arr, double** side_Arr, const int SIZE1, const int SIZE2)
+	void copy_d_arr(double** new_Arr, double** side_Arr, const int SIZE1, const int SIZE2)
 	{
 		for (int a = 0; a < SIZE1; a++)
 		{

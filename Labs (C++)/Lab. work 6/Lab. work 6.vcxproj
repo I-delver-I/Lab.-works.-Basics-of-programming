@@ -151,12 +151,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Functions.cpp" />
     <ClCompile Include="src\Lab. work 6.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Libs\Libs.vcxproj">
       <Project>{82b16b20-e392-4e48-af77-30ee7e03fc3a}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Labwork 6.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
